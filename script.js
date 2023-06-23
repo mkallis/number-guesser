@@ -53,6 +53,18 @@ const updateScore = (winner) => {
 }
 
 // pass in human
-console.log(updateScore('human'));
+// console.log(updateScore('human'));
 // pass in computer
-console.log(updateScore('computer'));
+// console.log(updateScore('computer'));
+
+
+// Updates the round number after each round played
+const advanceRound = () => {
+    currentRoundNumber++;
+    console.log('round number increased');
+    console.log(currentRoundNumber);
+}
+
+console.log('initial round number', currentRoundNumber);
+console.log('increase round number');
+console.log(advanceRound());
