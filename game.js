@@ -96,4 +96,11 @@ const handleValueChange = value => {
 
 humanGuessInput.addEventListener('input', function(e) {
   handleValueChange(e.target.value);
+  if (e.target.value < 0 || e.target.value > 10) {
+    console.log('BAD INPUT!');
+    alert('Your guess must be between 0 and 10!');
+    guessButton.setAttribute('disabled', true);
+  } else if (e.target.value >= 0 && e.target.value <= 10) {
+    guessButton.removeAttribute('disabled');
+  }
 });
