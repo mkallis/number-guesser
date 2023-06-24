@@ -20,8 +20,6 @@ guessButton.addEventListener('click', () => {
   const currentHumanGuess = humanGuessInput.value;
   if (currentHumanGuess < 0 || currentHumanGuess > 10) {
     alert('Your number is out of range! Please enter a value between 0 and 10.')
-    humanGuessInput.value = '';
-    // need to find a better way to break out of the rest of the code and reset the guess
   } else {
     // Make a random 'computer guess'
     const computerGuess = Math.floor(Math.random() * 10);
