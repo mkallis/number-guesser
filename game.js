@@ -83,17 +83,22 @@ subtractButton.addEventListener('click', () => {
   handleValueChange(humanGuessInput.value);
 });
 
+// user presses + and - buttons
 const handleValueChange = value => {
-  if (value > 0 && value <= 9) {
-    subtractButton.removeAttribute('disabled');
-    addButton.removeAttribute('disabled');
+  addButton.removeAttribute('disabled');
+  subtractButton.removeAttribute('disabled');
+  if (value < 1) {
+    subtractButton.setAttribute('disabled', true);
   } else if (value > 9) {
     addButton.setAttribute('disabled', true);
-  } else if (value <= 0) {
-    subtractButton.setAttribute('disabled', true);
+  }  
+  
+  if (value >= 0 && value <= 10) {
+    guessButton.removeAttribute('disabled');
   }
 }
 
+// user types input
 humanGuessInput.addEventListener('input', function(e) {
   handleValueChange(e.target.value);
   if (e.target.value < 0 || e.target.value > 10) {
