@@ -13,13 +13,7 @@ const generateTarget = () => {
 const compareGuesses = (humanGuess, computerGuess, targetNumber) => {
     humanDistance = Math.abs(humanGuess - targetNumber);
     computerDistance = Math.abs(computerGuess - targetNumber);
-
-    if (humanDistance <= computerDistance) {
-        return true;
-    }
-    else if (computerDistance < humanDistance) {
-        return false;
-    }
+    return humanDistance <= computerDistance;
 }
 
 
