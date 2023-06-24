@@ -14,10 +14,20 @@ const guessButton = document.getElementById('guess');
 const nextRoundButton = document.getElementById('next-round')
 
 guessButton.addEventListener('click', () => {
-  // Generate the target value
-  target = generateTarget();
   // Retrieve the player's guess
   const currentHumanGuess = humanGuessInput.value;
+  // Check if player guess is valid
+  if (currentHumanGuess >= 0 && currentHumanGuess <=10) {
+    playGame(currentHumanGuess);
+  } else {
+    alert('Your input must be between 0 and 10!');
+  }
+});
+
+const playGame = (humanGuess) => {
+  // Generate the target value
+  target = generateTarget();
+
   // Make a random 'computer guess'
   const computerGuess = Math.floor(Math.random() * 10);
 
@@ -49,7 +59,7 @@ guessButton.addEventListener('click', () => {
   // Set the correct disabled state for the buttons
   guessButton.setAttribute('disabled', true)
   nextRoundButton.removeAttribute('disabled');
-});
+}
 
 nextRoundButton.addEventListener('click', () => {
   // Increase the round number
